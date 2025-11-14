@@ -7,7 +7,7 @@
     "start": "live-server public --port=3000",
     "dev": "live-server public --port=3000 --watch=css,js,images",
     "demo": "echo '🚀 Starting Creda Chain Demo...' && live-server public --port=3000",
-    "build": "mkdir -p public && cp -r *.html css js images public/ 2>/dev/null || echo 'Static files ready for deployment'",
+    "build": "mkdir -p public && cp -v *.html public/ 2>/dev/null && [ -d css ] && cp -rv css public/ || true && [ -d js ] && cp -rv js public/ || true && [ -d images ] && cp -rv images public/ || true && echo '✅ Static files ready for deployment'",
     "vercel-build": "npm run build"
   },
   "keywords": [
