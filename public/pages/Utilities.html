@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Payment Checkout - Creda Chain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/dummy/utilities.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Creda Chain</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="airtime.html">Airtime</a></li>
+                        <li><a href="data.html">Data</a></li>
+                        <li><a href="utilities.html" class="active">Utilities</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <span class="text-muted" id="userBalance">Balance: ₦0.00</span>
+                    <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="checkout">
+        <div class="container">
+            <div class="checkout-container">
+                <div class="checkout-header">
+                    <div class="checkout-title">
+                        <h2 id="utilityTitle">Utility Payment</h2>
+                        <p id="utilityDescription">Complete your payment</p>
+                    </div>
+                    <a href="utilities.html" class="btn btn-outline btn-sm">
+                        <i class="fas fa-arrow-left"></i> Back to Utilities
+                    </a>
+                </div>
+                
+                <div class="checkout-content">
+                    <div class="payment-form">
+                        <div class="form-header">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <h3>Payment Details</h3>
+                        </div>
+                        <form id="checkoutForm">
+                            <div id="electricityForm" class="utility-form">
+                                <div class="form-group">
+                                    <label class="form-label" for="disco">Electricity Company</label>
+                                    <select class="form-control" id="disco" required>
+                                        <option value="">Select Disco</option>
+                                        <option value="ikedc">IKEDC - Ikeja Electric</option>
+                                        <option value="ekedc">EKEDC - Eko Electric</option>
+                                        <option value="phed">PHED - Port Harcourt Electric</option>
+                                        <option value="ibedc">IBEDC - Ibadan Electric</option>
+                                        <option value="kedco">KEDCO - Kano Electric</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="meterNumber">Meter Number</label>
+                                    <input type="text" class="form-control" id="meterNumber" placeholder="Enter meter number" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Meter Type</label>
+                                    <div class="meter-types">
+                                        <div class="meter-type active" data-type="prepaid">Prepaid</div>
+                                        <div class="meter-type" data-type="postpaid">Postpaid</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="amount">Amount (₦)</label>
+                                    <div class="amount-suggestions">
+                                        <div class="amount-suggestion" data-amount="1000">₦1,000</div>
+                                        <div class="amount-suggestion" data-amount="2000">₦2,000</div>
+                                        <div class="amount-suggestion" data-amount="5000">₦5,000</div>
+                                        <div class="amount-suggestion" data-amount="10000">₦10,000</div>
+                                    </div>
+                                    <input type="number" class="form-control" id="amount" placeholder="Enter amount" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phoneNumber" placeholder="0800 000 0000" required>
+                                </div>
+                            </div>
+                            
+                            <div id="cableForm" class="utility-form" style="display: none;">
+                                <div class="form-group">
+                                    <label class="form-label" for="cableProvider">Cable Provider</label>
+                                    <select class="form-control" id="cableProvider" required>
+                                        <option value="">Select Provider</option>
+                                        <option value="dstv">DSTV</option>
+                                        <option value="gotv">GOTV</option>
+                                        <option value="startimes">StarTimes</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="smartcard">Smartcard Number</label>
+                                    <input type="text" class="form-control" id="smartcard" placeholder="Enter smartcard number" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="cablePackage">Select Package</label>
+                                    <select class="form-control" id="cablePackage" required>
+                                        <option value="">Select Package</option>
+                                        <option value="premium">DSTV Premium - ₦24,500</option>
+                                        <option value="compact">DSTV Compact - ₦10,500</option>
+                                        <option value="confam">GOTV Confam - ₦3,600</option>
+                                        <option value="max">GOTV Max - ₦5,200</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="paymentMethod">Payment Method</label>
+                                <select class="form-control" id="paymentMethod">
+                                    <option value="wallet">Wallet Balance</option>
+                                    <option value="card">Debit Card</option>
+                                    <option value="bank">Bank Transfer</option>
+                                    <option value="usdt">USDT</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">
+                                <i class="fas fa-lock"></i> Complete Payment
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <div class="summary-header">
+                            <i class="fas fa-receipt"></i>
+                            <h3>Order Summary</h3>
+                        </div>
+                        
+                        <div style="text-align: center; margin-bottom: 25px;">
+                            <div class="utility-icon-large" id="summaryIcon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 id="summaryTitle">Electricity Bill</h3>
+                            <p class="text-muted" id="summaryDescription">Pay your electricity bill</p>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Utility Type:</span>
+                            <span id="summaryType">Electricity</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Provider:</span>
+                            <span id="summaryProvider">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Account Number:</span>
+                            <span id="summaryAccount">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Amount:</span>
+                            <span id="summaryAmount">₦0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Service Fee:</span>
+                            <span>₦0.00</span>
+                        </div>
+                        
+                        <div class="summary-total">
+                            <span>Total:</span>
+                            <span id="summaryTotal">₦0.00</span>
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(16, 185, 129, 0.1); border-radius: 10px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <p style="color: var(--success); font-size: 0.9rem; margin: 0;">
+                                <i class="fas fa-shield-alt"></i> Your payment is secure and encrypted
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Creda Chain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="/public/js/service.js"></script>
+<script src="/public/js/dashboard.js"></script>
+</body>
+</html>

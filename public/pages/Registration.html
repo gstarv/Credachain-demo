@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Creda Chain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/public/css/dummy/registration.css">
+
+   
+</head>
+<body>
+    <!-- Auth Container -->
+    <section class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <div class="logo-icon"></div>
+                    <span class="auth-logo-text">Creda Chain</span>
+                </div>
+                <p class="auth-subtitle">Join the future of secure blockchain payments</p>
+            </div>
+            
+            <!-- Progress Steps -->
+            <div class="progress-container">
+                <div class="progress-steps">
+                    <div class="progress-bar" id="progressBar" style="width: 33%;"></div>
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Personal Info</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Security</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Verification</div>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="signupForm">
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active" data-step="1">
+                    <h3 class="step-title">Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <div class="input-with-icon">
+                            <input type="tel" class="form-control" id="phone" placeholder="+234 800 000 0000" required>
+                            <i class="fas fa-phone input-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="country">Country</label>
+                        <select class="form-control" id="country" required>
+                            <option value="">Select your country</option>
+                            <!-- African countries will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <div></div> <!-- Spacer -->
+                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+                            Continue <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Security -->
+                <div class="form-step" data-step="2">
+                    <h3 class="step-title">Security Setup</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <div class="input-with-icon">
+                            <input type="password" class="form-control" id="password" placeholder="Create a strong password" required minlength="8">
+                            <i class="fas fa-lock input-icon"></i>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <div class="strength-text" id="strengthText">Password strength</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                            <i class="fas fa-lock input-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enable2FA" checked>
+                        <label for="enable2FA" class="checkbox-label">
+                            Enable Two-Factor Authentication (2FA) for enhanced security
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="backupWallet" required>
+                        <label for="backupWallet" class="checkbox-label">
+                            I understand I need to securely backup my wallet keys
+                        </label>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-outline" onclick="prevStep(1)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+                            Continue <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Verification -->
+                <div class="form-step" data-step="3">
+                    <h3 class="step-title">Account Verification</h3>
+                    
+                    <div class="whatsapp-notice">
+                        <i class="fab fa-whatsapp"></i>
+                        <p>We recommend WhatsApp for faster verification. Codes are delivered instantly.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Verification Method</label>
+                        <div class="verification-options">
+                            <div class="verification-option active" data-method="whatsapp">
+                                <div class="verification-icon">
+                                    <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                                </div>
+                                <div class="verification-label">WhatsApp</div>
+                            </div>
+                            <div class="verification-option" data-method="sms">
+                                <div class="verification-icon">
+                                    <i class="fas fa-sms" style="color: var(--primary-blue);"></i>
+                                </div>
+                                <div class="verification-label">SMS</div>
+                            </div>
+                            <div class="verification-option" data-method="email">
+                                <div class="verification-icon">
+                                    <i class="fas fa-envelope" style="color: var(--primary-purple);"></i>
+                                </div>
+                                <div class="verification-label">Email</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="verificationCode">Verification Code</label>
+                        <div class="input-with-icon">
+                            <input type="text" class="form-control" id="verificationCode" placeholder="Enter 6-digit code" maxlength="6">
+                            <button type="button" class="btn btn-outline" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); padding: 8px 12px; font-size: 0.8rem;" onclick="sendVerificationCode()">
+                                Send Code
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <label for="acceptTerms" class="checkbox-label">
+                            I agree to the <a href="terms.html">Terms of Service</a> and 
+                            <a href="privacy.html">Privacy Policy</a>. I understand that Creda Chain 
+                            uses blockchain technology and I am responsible for securing my wallet keys.
+                        </label>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-outline" onclick="prevStep(2)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Sign in</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="/public/js/auth.js"></script>
+</body>
+</html>

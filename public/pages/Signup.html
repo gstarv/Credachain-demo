@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Creda Chain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/dummy/signup.css">
+
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <div class="logo-icon"></div>
+                    <span class="auth-logo-text">Creda Chain</span>
+                </div>
+                <p class="auth-subtitle">Join the future of secure blockchain payments</p>
+            </div>
+            
+            <form id="signupForm">
+                <div class="form-group">
+                    <label class="form-label" for="fullName">Full Name</label>
+                    <div class="input-with-icon">
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                        <i class="fas fa-user input-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <div class="input-with-icon">
+                        <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                        <i class="fas fa-envelope input-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <div class="input-with-icon">
+                        <input type="tel" class="form-control" id="phone" placeholder="+234 800 000 0000" required>
+                        <i class="fas fa-phone input-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="input-with-icon">
+                        <input type="password" class="form-control" id="password" placeholder="Create a strong password" required minlength="8">
+                        <button type="button" class="password-toggle" id="passwordToggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">Password strength</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="confirmPassword">Confirm Password</label>
+                    <div class="input-with-icon">
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                        <i class="fas fa-lock input-icon"></i>
+                    </div>
+                </div>
+
+                <div class="security-features">
+                    <h4>
+                        <i class="fas fa-shield-alt"></i>
+                        Security Features
+                    </h4>
+                    <ul class="security-list">
+                        <li>Blockchain-secured transactions</li>
+                        <li>Two-factor authentication</li>
+                        <li>Encrypted wallet storage</li>
+                        <li>Smart contract protection</li>
+                    </ul>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="acceptTerms" required>
+                    <label for="acceptTerms" class="checkbox-label">
+                        I agree to the <a href="terms.html">Terms of Service</a> and 
+                        <a href="privacy.html">Privacy Policy</a>. I understand that Creda Chain 
+                        uses blockchain technology and I am responsible for securing my wallet keys.
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Create Secure Account
+                </button>
+            </form>
+            
+            <div class="divider">
+                <span>or sign up with</span>
+            </div>
+            
+            <div class="social-login">
+                <button type="button" class="social-btn google">
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button type="button" class="social-btn apple">
+                    <i class="fab fa-apple"></i> Apple
+                </button>
+            </div>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Sign in here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/js/auth.js"></script>
+</body>
+</html>

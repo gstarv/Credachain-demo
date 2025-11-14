@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Creda Chain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/dummy/dashboard.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Creda Chain</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                        <li><a href="convert.html">Convert</a></li>
+                        <li><a href="transfer.html">Transfer</a></li>
+                        <li><a href="transactions.html">Transactions</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <span class="text-muted" id="userBalance">Balance: ₦0.00</span>
+                    <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <div>
+                        <h2>Dashboard Overview</h2>
+                        <p class="text-muted">Welcome back! Here's your financial summary</p>
+                    </div>
+                    <div class="dashboard-nav">
+                        <a href="dashboard.html" class="active">Overview</a>
+                        <a href="transactions.html">Transactions</a>
+                        <a href="transfer.html">Transfer</a>
+                        <a href="convert.html">Convert</a>
+                    </div>
+                </div>
+                
+                <div class="dashboard-content">
+                    <!-- Welcome Section -->
+                    <div class="welcome-section">
+                        <div class="welcome-content">
+                            <h1>Welcome to Creda Chain!</h1>
+                            <p>Get started by funding your account and making your first transaction</p>
+                            <div class="hero-buttons">
+                                <a href="convert.html" class="btn btn-outline">Convert Currency</a>
+                                <a href="transfer.html" class="btn btn-outline">Send Money</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon primary">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div>
+                                    <div class="stat-title">Total Balance</div>
+                                    <div class="stat-value" id="totalBalance">₦0.00</div>
+                                    <div class="stat-change">Ready for transactions</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon success">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <div class="stat-title">USDT Balance</div>
+                                    <div class="stat-value" id="usdtBalance">0.0000 USDT</div>
+                                    <div class="stat-change">Ready for conversion</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon warning">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div>
+                                    <div class="stat-title">Monthly Transactions</div>
+                                    <div class="stat-value" id="monthlyTransactions">0</div>
+                                    <div class="stat-change">No transactions yet</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-icon danger">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div>
+                                    <div class="stat-title">Total Spent</div>
+                                    <div class="stat-value" id="totalSpent">₦0.00</div>
+                                    <div class="stat-change">No spending yet</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h3 class="section-title">Quick Actions</h3>
+                        <div class="actions-grid">
+                            <div class="action-card" onclick="window.location.href='convert.html'">
+                                <div class="action-icon">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <h3>Convert Currency</h3>
+                                <p>USDT to Naira at best rates</p>
+                            </div>
+                            
+                            <div class="action-card" onclick="window.location.href='transfer.html'">
+                                <div class="action-icon">
+                                    <i class="fas fa-paper-plane"></i>
+                                </div>
+                                <h3>Send Money</h3>
+                                <p>Transfer to any bank account</p>
+                            </div>
+                            
+                            <div class="action-card" onclick="window.location.href='airtime.html'">
+                                <div class="action-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h3>Buy Airtime</h3>
+                                <p>Instant airtime recharge</p>
+                            </div>
+                            
+                            <div class="action-card" onclick="window.location.href='data.html'">
+                                <div class="action-icon">
+                                    <i class="fas fa-wifi"></i>
+                                </div>
+                                <h3>Buy Data</h3>
+                                <p>Affordable data plans</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exchange Rates -->
+                    <div class="exchange-rates">
+                        <div class="rates-header">
+                            <h3 class="section-title">Live Exchange Rates</h3>
+                            <div class="live-indicator">LIVE</div>
+                        </div>
+                        <div class="rates-grid">
+                            <div class="rate-card">
+                                <div class="rate-pair">USDT/NGN</div>
+                                <div class="rate-value" id="usdtNgnRate">₦0.00</div>
+                                <div class="rate-change">Loading...</div>
+                            </div>
+                            <div class="rate-card">
+                                <div class="rate-pair">USD/NGN</div>
+                                <div class="rate-value" id="usdNgnRate">₦0.00</div>
+                                <div class="rate-change">Loading...</div>
+                            </div>
+                            <div class="rate-card">
+                                <div class="rate-pair">EUR/NGN</div>
+                                <div class="rate-value" id="eurNgnRate">₦0.00</div>
+                                <div class="rate-change">Loading...</div>
+                            </div>
+                            <div class="rate-card">
+                                <div class="rate-pair">GBP/NGN</div>
+                                <div class="rate-value" id="gbpNgnRate">₦0.00</div>
+                                <div class="rate-change">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity - Empty State -->
+                    <div class="recent-activity">
+                        <h3 class="section-title">Recent Activity</h3>
+                        <div class="empty-state">
+                            <div class="empty-state-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <h3>No Transactions Yet</h3>
+                            <p>Your transaction history will appear here once you start using Creda Chain services.</p>
+                            <div class="hero-buttons">
+                                <a href="convert.html" class="btn btn-primary">Make Your First Transaction</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Creda Chain</h3>
+                    <p>Building trust through blockchain technology for secure digital payments and verifiable transactions.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="airtime.html">Airtime Recharge</a></li>
+                        <li><a href="data.html">Data Recharge</a></li>
+                        <li><a href="utilities.html">Utilities Payment</a></li>
+                        <li><a href="transfer.html">Money Transfer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#status">Status</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Creda Chain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="/public/js/service.js"></script>
+<script src="/public/js/dashboard.js"></script>
+</body>
+</html>

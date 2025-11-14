@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Recharge - Creda Chain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/dummy/data.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Creda Chain</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="airtime.html">Airtime</a></li>
+                        <li><a href="data.html" class="active">Data</a></li>
+                        <li><a href="utilities.html">Utilities</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <span class="text-muted" id="userBalance">Balance: ₦0.00</span>
+                    <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">
+                        <h2>Data Recharge</h2>
+                        <p>Affordable data plans for all networks</p>
+                    </div>
+                    <div class="dashboard-nav">
+                        <a href="airtime.html">Airtime</a>
+                        <a href="data.html" class="active">Data</a>
+                        <a href="utilities.html">Utilities</a>
+                        <a href="transfer.html">Transfer</a>
+                    </div>
+                </div>
+                
+                <div class="dashboard-content">
+                    <div class="wallet-panel">
+                        <div class="wallet-balance">
+                            <p class="text-muted">Available Balance</p>
+                            <div class="balance-amount" id="balanceAmount">₦0.00</div>
+                            <p class="text-muted">Fast • Reliable • Best Rates</p>
+                        </div>
+                        
+                        <div class="benefits-card">
+                            <h4>
+                                <i class="fas fa-gift"></i>
+                                Special Benefits
+                            </h4>
+                            <ul class="benefits-list">
+                                <li>10-20% bonus data on all plans</li>
+                                <li>Instant activation guaranteed</li>
+                                <li>24/7 customer support</li>
+                                <li>Blockchain secured transactions</li>
+                            </ul>
+                        </div>
+
+                        <div class="quick-stats">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                                <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                                    <div style="font-size: 1.2rem; font-weight: 700; color: var(--success);">₦0</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">Saved Today</div>
+                                </div>
+                                <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                                    <div style="font-size: 1.2rem; font-weight: 700; color: var(--royal-blue);">0</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">Data Purchases</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="main-panel">
+                        <div class="payment-form">
+                            <div class="form-header">
+                                <i class="fas fa-wifi"></i>
+                                <h3>Buy Data Plan</h3>
+                            </div>
+                            <form id="dataForm">
+                                <div class="form-group">
+                                    <label class="form-label">Select Network</label>
+                                    <div class="network-grid">
+                                        <div class="network-option active" data-network="MTN">
+                                            <div class="network-icon mtn">
+                                                <i class="fas fa-wifi"></i>
+                                            </div>
+                                            <span>MTN</span>
+                                        </div>
+                                        <div class="network-option" data-network="GLO">
+                                            <div class="network-icon glo">
+                                                <i class="fas fa-wifi"></i>
+                                            </div>
+                                            <span>Glo</span>
+                                        </div>
+                                        <div class="network-option" data-network="AIRTEL">
+                                            <div class="network-icon airtel">
+                                                <i class="fas fa-wifi"></i>
+                                            </div>
+                                            <span>Airtel</span>
+                                        </div>
+                                        <div class="network-option" data-network="9MOBILE">
+                                            <div class="network-icon etisalat">
+                                                <i class="fas fa-wifi"></i>
+                                            </div>
+                                            <span>9mobile</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                                    <div class="input-with-icon">
+                                        <input type="tel" class="form-control" id="phoneNumber" placeholder="0800 000 0000" required>
+                                        <i class="fas fa-phone input-icon"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Select Data Plan</label>
+                                    <div class="data-plans" id="dataPlans">
+                                        <!-- Data plans will be loaded dynamically -->
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="paymentMethod">Payment Method</label>
+                                    <select class="form-control" id="paymentMethod">
+                                        <option value="wallet">Wallet Balance</option>
+                                        <option value="card">Debit Card</option>
+                                        <option value="bank">Bank Transfer</option>
+                                        <option value="usdt">USDT</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">
+                                    <i class="fas fa-wifi"></i> Buy Data Now
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="activity-feed">
+                            <div class="activity-header">
+                                <i class="fas fa-history"></i>
+                                <h3>Recent Data Purchases</h3>
+                            </div>
+                            <div class="activity-list" id="recentData">
+                                <div class="activity-item" style="text-align: center; padding: 30px;">
+                                    <div class="activity-content">
+                                        <p style="color: var(--text-muted);">No recent data purchases</p>
+                                        <p class="text-muted">Your data purchase history will appear here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Creda Chain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="/public/js/service.js"></script>
+<script src="/public/js/dashboard.js"></script>
+</body>
+</html>

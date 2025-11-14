@@ -1,0 +1,361 @@
+/* Auth Page Specific Styles */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.auth-logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient-alt);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.auth-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+/* Progress Steps */
+.progress-container {
+    margin-bottom: 30px;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    height: 2px;
+    background: var(--gradient-alt);
+    z-index: 2;
+    transition: width 0.3s ease;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.step.active .step-number {
+    background: var(--gradient-alt);
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+}
+
+.step.completed .step-number {
+    background: var(--success);
+    box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.2);
+}
+
+.step.completed .step-number::after {
+    content: '✓';
+    color: white;
+}
+
+.step-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-align: center;
+}
+
+.step.active .step-label {
+    color: var(--text-light);
+}
+
+/* Form Steps */
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-step.active {
+    display: block;
+}
+
+.step-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+/* Password Strength */
+.password-strength {
+    margin-top: 8px;
+}
+
+.strength-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.strength-weak .strength-fill {
+    background: var(--danger);
+    width: 33%;
+}
+
+.strength-medium .strength-fill {
+    background: var(--warning);
+    width: 66%;
+}
+
+.strength-strong .strength-fill {
+    background: var(--success);
+    width: 100%;
+}
+
+/* Verification Options */
+.verification-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.verification-option {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.verification-option:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.verification-option.active {
+    background: rgba(52, 152, 219, 0.2);
+    border-color: var(--primary-blue);
+}
+
+.verification-icon {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.verification-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Form Navigation */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Security Notice */
+.security-notice {
+    background: rgba(52, 152, 219, 0.1);
+    border: 1px solid rgba(52, 152, 219, 0.3);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.security-notice i {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+}
+
+.security-notice p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* WhatsApp Notice */
+.whatsapp-notice {
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.whatsapp-notice i {
+    color: #25D366;
+    font-size: 1.2rem;
+}
+
+.whatsapp-notice p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Auth Footer */
+.auth-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.divider span {
+    background: var(--card-bg);
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Social Login */
+.social-login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* Responsive Auth */
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 15px;
+    }
+    
+    .progress-steps {
+        gap: 5px;
+    }
+    
+    .step-label {
+        font-size: 0.7rem;
+    }
+    
+    .verification-options {
+        flex-direction: column;
+    }
+    
+    .social-login {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-navigation .btn {
+        width: 100%;
+    }
+}

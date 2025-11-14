@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creda Chain - Secure Blockchain Payments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/dummy/index.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/public/Index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Creda Chain</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/public/Index.html" class="active">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="/public/pages/login.html" class="btn btn-outline">Log In</a>
+                    <a href="/public/pages/Registration.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Revolutionizing Payments with Blockchain Technology</h1>
+            <p>Creda Chain eliminates failed payments, double transactions, and slow refunds with our secure blockchain infrastructure. Support for Naira and USDT payments.</p>
+            
+            <!-- Real-time Exchange Rates -->
+            <div class="exchange-rate">
+                <h4>
+                    Live Exchange Rates
+                    <span class="live-indicator">LIVE</span>
+                </h4>
+                <div id="exchangeRates" class="loading">
+                    Loading current rates...
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="signup.html" class="btn btn-primary btn-lg">Get Started</a>
+                <a href="#features" class="btn btn-outline btn-lg">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="features" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>All Your Payments in One Place</h2>
+                <p>Complete payment solutions for your everyday needs, powered by secure blockchain technology</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Airtime Recharge</h3>
+                    <p>Instant airtime top-up for all Nigerian networks with best rates and instant delivery.</p>
+                    <a href="/public/pages/Airtime.html" class="service-link">
+                        Recharge Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Data Recharge</h3>
+                    <p>Affordable data plans for MTN, Glo, Airtel, and 9mobile with special bonuses.</p>
+                    <a href="data.html" class="service-link">
+                        Buy Data <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Utilities Payment</h3>
+                    <p>Pay electricity bills, water bills, and cable TV subscriptions seamlessly.</p>
+                    <a href="/public/pages/Utilities.html" class="service-link">
+                        Pay Bills <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3>Money Transfer</h3>
+                    <p>Send money to any bank account or Creda Chain user instantly and securely.</p>
+                    <a href="/public/pages/Transfer.html" class="service-link">
+                        Send Money <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>USDT to Naira</h3>
+                    <p>Convert cryptocurrency to Naira at best market rates with instant settlement.</p>
+                    <a href="/public/pages/convert.html" class="service-link">
+                        Convert Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Transaction History</h3>
+                    <p>View and manage all your payment history in one secure, organized place.</p>
+                    <a href="/public/pages/transactions.html" class="service-link">
+                        View History <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalUsers">87.5K</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalTransactions">2.1M</div>
+                    <div class="stat-label">Transactions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="successRate">99.8%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">₦15.2B</div>
+                    <div class="stat-label">Total Processed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blockchain Features -->
+    <section class="blockchain-features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Creda Chain?</h2>
+                <p>Built on blockchain technology for unparalleled security and reliability</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Blockchain Security</h3>
+                    <p>Immutable transaction records prevent fraud, double spending, and failed payments with cryptographic verification.</p>
+                    <div class="real-time-data">
+                        <small>Network Status: <span id="networkStatus" class="loading">Checking</span></small>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Process thousands of transactions per second with our optimized blockchain architecture and smart contracts.</p>
+                    <div class="real-time-data">
+                        <small>Current TPS: <span id="currentTPS" class="loading">Calculating</span></small>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Dual Currency Support</h3>
+                    <p>Accept payments in Nigerian Naira and USDT cryptocurrency with automatic conversion and best rates.</p>
+                    <div class="real-time-data">
+                        <small>USDT Price: $<span id="usdtPrice" class="loading">1.00</span></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="security">
+        <div class="container">
+            <h2>Ready to Experience Secure Payments?</h2>
+            <p>Join thousands of businesses and individuals using Creda Chain for all their payment needs. Get started with our free tier today.</p>
+            <div class="hero-buttons">
+                <a href="/public/pages/Registration.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+                <a href="/public/pages/dashboard.html" class="btn btn-outline btn-lg">View Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Creda Chain</h3>
+                    <p>Building trust through blockchain technology for secure digital payments and verifiable transactions. Join thousands of satisfied users today.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@credachain.com</p>
+                        <p><i class="fas fa-phone"></i> +234 800 123 4567</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/public/pages/Airtime.html">Airtime Recharge</a></li>
+                        <li><a href="/public/pages/Data.html">Data Recharge</a></li>
+                        <li><a href="/public/pages/Utilities.html">Utilities Payment</a></li>
+                        <li><a href="transfer.html">Money Transfer</a></li>
+                        <li><a href="/public/pages/convert.html">USDT to Naira</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#status">Status</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Creda Chain. All rights reserved. | Blockchain-Powered Payment Solutions</p>
+            </div>
+        </div>
+    </footer>
+<script src="/public/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDT to Naira - Creda Chain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="stylesheet" href="/public/css/dummy/convert.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Creda Chain</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="convert.html" class="active">Convert</a></li>
+                        <li><a href="transfer.html">Transfer</a></li>
+                        <li><a href="transactions.html">Transactions</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <span class="text-muted" id="userBalance">Balance: ₦0.00</span>
+                    <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <div>
+                        <h2 class="gradient-text">USDT to Naira Conversion</h2>
+                        <p class="text-muted">Convert between USDT and Naira at best market rates</p>
+                    </div>
+                    <div class="dashboard-nav">
+                        <a href="convert.html" class="active">Convert</a>
+                        <a href="transfer.html">Transfer</a>
+                        <a href="airtime.html">Airtime</a>
+                        <a href="data.html">Data</a>
+                    </div>
+                </div>
+                
+                <div class="dashboard-content">
+                    <div class="wallet-panel">
+                        <div class="wallet-balance">
+                            <p class="text-muted">USDT Balance</p>
+                            <div class="balance-amount gradient-text" id="usdtBalance">0.0000 USDT</div>
+                            <p class="text-muted" id="usdtValue">≈ ₦0.00</p>
+                        </div>
+                        
+                        <div class="wallet-balance" style="margin-top: 30px;">
+                            <p class="text-muted">Naira Balance</p>
+                            <div class="balance-amount gradient-text" id="nairaBalance">₦0.00</div>
+                        </div>
+                        
+                        <div class="exchange-rate">
+                            <h4>Live Rates</h4>
+                            <div class="rate-item">
+                                <span>Buy Rate:</span>
+                                <span id="buyRate" class="loading">Loading...</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Sell Rate:</span>
+                                <span id="sellRate" class="loading">Loading...</span>
+                            </div>
+                            <div class="rate-item">
+                                <span>Spread:</span>
+                                <span id="spread" class="loading">0.0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="main-panel">
+                        <div class="conversion-box">
+                            <h3>Currency Converter</h3>
+                            
+                            <div class="currency-input">
+                                <div class="currency-flag usdt-flag">$</div>
+                                <div style="flex: 1;">
+                                    <label class="form-label">You Send</label>
+                                    <input type="number" class="form-control" id="sendAmount" placeholder="0.00" value="100">
+                                    <small class="text-muted">USDT</small>
+                                </div>
+                            </div>
+                            
+                            <button class="swap-button" id="swapCurrencies">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
+                            
+                            <div class="currency-input">
+                                <div class="currency-flag ngn-flag">₦</div>
+                                <div style="flex: 1;">
+                                    <label class="form-label">You Receive</label>
+                                    <input type="number" class="form-control" id="receiveAmount" placeholder="0.00" readonly>
+                                    <small class="text-muted">NGN</small>
+                                </div>
+                            </div>
+                            
+                            <div class="rate-info">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Exchange Rate:</span>
+                                    <strong id="exchangeRate">1 USDT = ₦0.00</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
+                                    <span>Fee:</span>
+                                    <strong id="conversionFee">₦0.00</strong>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="recipientBank">Recipient Bank Account</label>
+                                <select class="form-control" id="recipientBank">
+                                    <option value="">Select Bank Account</option>
+                                    <option value="access">Access Bank - ****1234</option>
+                                    <option value="zenith">Zenith Bank - ****5678</option>
+                                    <option value="uba">UBA - ****9012</option>
+                                    <option value="firstbank">First Bank - ****3456</option>
+                                </select>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-lg" style="width: 100%; margin-top: 20px;" id="convertButton">
+                                <i class="fas fa-exchange-alt"></i> Convert Now
+                            </button>
+                        </div>
+                        
+                        <div class="activity-feed">
+                            <h3>Conversion History</h3>
+                            <div class="empty-state">
+                                <div class="empty-state-icon">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <h3>No Conversion History</h3>
+                                <p>Your conversion history will appear here once you start converting between USDT and Naira.</p>
+                                <div class="hero-buttons">
+                                    <a href="#" class="btn btn-primary" onclick="document.getElementById('sendAmount').focus()">Make Your First Conversion</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Creda Chain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="/public/js/service.js"></script>
+<script src="/public/js/dashboard.js"></script>
+</body>
+</html>

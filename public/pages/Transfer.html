@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Transfer - Creda Chain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/dummy/transfer.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Creda Chain</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="transfer.html" class="active">Transfer</a></li>
+                        <li><a href="convert.html">Convert</a></li>
+                        <li><a href="transactions.html">Transactions</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <span class="text-muted" id="userBalance">Balance: ₦0.00</span>
+                    <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">
+                        <h2>Money Transfer</h2>
+                        <p>Send money to bank accounts or Creda Chain users</p>
+                    </div>
+                    <div class="dashboard-nav">
+                        <a href="transfer.html" class="active">Transfer</a>
+                        <a href="convert.html">Convert</a>
+                        <a href="airtime.html">Airtime</a>
+                        <a href="data.html">Data</a>
+                    </div>
+                </div>
+                
+                <div class="dashboard-content">
+                    <div class="wallet-panel">
+                        <div class="wallet-balance">
+                            <p class="text-muted">Available Balance</p>
+                            <div class="balance-amount" id="balanceAmount">₦0.00</div>
+                            <p class="text-muted">Secure • Fast • Reliable</p>
+                        </div>
+                        
+                        <div class="benefits-card">
+                            <h4>
+                                <i class="fas fa-shield-alt"></i>
+                                Transfer Limits
+                            </h4>
+                            <ul class="benefits-list">
+                                <li>Daily Limit: ₦5,000,000</li>
+                                <li>Single Transfer: ₦2,000,000</li>
+                                <li>Minimum Transfer: ₦100</li>
+                                <li>Zero Failed Transactions</li>
+                            </ul>
+                        </div>
+
+                        <div class="limit-info">
+                            <h4><i class="fas fa-lock"></i> PIN Security</h4>
+                            <p style="margin: 10px 0 0; font-size: 0.9rem;">
+                                All transfers require a 4-digit PIN for security. Your first transfer will prompt you to create a PIN.
+                            </p>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <h4>Quick Actions</h4>
+                            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                                <button class="btn btn-outline btn-sm" onclick="fillRecipient('bank')">
+                                    <i class="fas fa-university"></i> Bank Transfer
+                                </button>
+                                <button class="btn btn-outline btn-sm" onclick="fillRecipient('creda')">
+                                    <i class="fas fa-user"></i> Creda User
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="main-panel">
+                        <div class="payment-form">
+                            <div class="form-header">
+                                <i class="fas fa-paper-plane"></i>
+                                <h3>Send Money</h3>
+                            </div>
+                            <form id="transferForm">
+                                <div class="form-group">
+                                    <label class="form-label">Transfer Type</label>
+                                    <div class="transfer-options">
+                                        <div class="transfer-option active" data-type="bank">
+                                            <div class="transfer-icon">
+                                                <i class="fas fa-university"></i>
+                                            </div>
+                                            <span>Bank Transfer</span>
+                                        </div>
+                                        <div class="transfer-option" data-type="creda">
+                                            <div class="transfer-icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <span>Creda User</span>
+                                        </div>
+                                        <div class="transfer-option" data-type="international">
+                                            <div class="transfer-icon">
+                                                <i class="fas fa-globe"></i>
+                                            </div>
+                                            <span>International</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="bankForm" class="transfer-form">
+                                    <div class="form-group">
+                                        <label class="form-label" for="bankName">Select Bank</label>
+                                        <select class="form-control" id="bankName" required>
+                                            <option value="">Choose Bank</option>
+                                            <option value="access">Access Bank</option>
+                                            <option value="zenith">Zenith Bank</option>
+                                            <option value="uba">United Bank for Africa (UBA)</option>
+                                            <option value="firstbank">First Bank of Nigeria</option>
+                                            <option value="gtbank">Guaranty Trust Bank (GTB)</option>
+                                            <option value="ecobank">Ecobank Nigeria</option>
+                                            <option value="fidelity">Fidelity Bank</option>
+                                            <option value="union">Union Bank</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="accountNumber">Account Number</label>
+                                        <input type="text" class="form-control" id="accountNumber" placeholder="Enter account number" required>
+                                        <button type="button" class="btn btn-outline btn-sm" style="margin-top: 8px; width: 100%;" onclick="verifyAccount()">
+                                            <i class="fas fa-check-circle"></i> Verify Account
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="form-group" id="accountNameGroup" style="display: none;">
+                                        <label class="form-label">Account Name</label>
+                                        <div class="form-control" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+                                            <span id="accountName">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="credaForm" class="transfer-form" style="display: none;">
+                                    <div class="form-group">
+                                        <label class="form-label" for="credaId">Creda ID, Email or Phone</label>
+                                        <input type="text" class="form-control" id="credaId" placeholder="Enter Creda ID, email or phone number">
+                                        <button type="button" class="btn btn-outline btn-sm" style="margin-top: 8px; width: 100%;" onclick="findCredaUser()">
+                                            <i class="fas fa-search"></i> Find User
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="beneficiary-list" id="savedBeneficiaries">
+                                        <h4>Saved Beneficiaries</h4>
+                                        <div class="beneficiary-item" onclick="selectBeneficiary('John Doe', 'john@email.com')">
+                                            <div class="beneficiary-avatar">JD</div>
+                                            <div>
+                                                <p style="margin: 0; font-weight: 600;">John Doe</p>
+                                                <p style="margin: 0; color: var(--text-muted); font-size: 0.8rem;">john@email.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="beneficiary-item" onclick="selectBeneficiary('Sarah Smith', 'sarah@email.com')">
+                                            <div class="beneficiary-avatar">SS</div>
+                                            <div>
+                                                <p style="margin: 0; font-weight: 600;">Sarah Smith</p>
+                                                <p style="margin: 0; color: var(--text-muted); font-size: 0.8rem;">sarah@email.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="amount">Amount (₦)</label>
+                                    <input type="number" class="form-control" id="amount" placeholder="Enter amount" required min="100" max="2000000">
+                                    <small class="text-muted">Minimum: ₦100 | Maximum: ₦2,000,000 per transaction</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="description">Description (Optional)</label>
+                                    <input type="text" class="form-control" id="description" placeholder="What's this transfer for?">
+                                </div>
+                                
+                                <div class="fee-calculator">
+                                    <h4>Transfer Summary</h4>
+                                    <div class="fee-item">
+                                        <span>Amount:</span>
+                                        <span id="summaryAmount">₦0.00</span>
+                                    </div>
+                                    <div class="fee-item">
+                                        <span>Transfer Fee:</span>
+                                        <span id="transferFee">₦0.00</span>
+                                    </div>
+                                    <div class="fee-item">
+                                        <span>Blockchain Fee:</span>
+                                        <span id="blockchainFee">₦0.00</span>
+                                    </div>
+                                    <div class="fee-item">
+                                        <span>Total Deducted:</span>
+                                        <span id="totalDeducted">₦0.00</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                        <input type="checkbox" id="useSmartContract" checked>
+                                        <span>Use Smart Contract for enhanced security</span>
+                                    </label>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">
+                                    <i class="fas fa-paper-plane"></i> Send Money Securely
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="activity-feed">
+                            <div class="activity-header">
+                                <i class="fas fa-history"></i>
+                                <h3>Recent Transfers</h3>
+                            </div>
+                            <div class="activity-list" id="recentTransfers">
+                                <div class="activity-item" style="text-align: center; padding: 30px;">
+                                    <div class="activity-content">
+                                        <p style="color: var(--text-muted);">No recent transfers</p>
+                                        <p class="text-muted">Your transfer history will appear here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Creda Chain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PIN Modal -->
+    <div class="pin-modal" id="pinModal">
+        <div class="pin-container">
+            <div class="pin-header">
+                <h3 id="pinTitle">Create Your Transaction PIN</h3>
+                <p id="pinDescription">Enter a 4-digit PIN to secure your transactions</p>
+            </div>
+            <div class="pin-inputs">
+                <input type="password" maxlength="1" class="pin-input" id="pin1" autocomplete="off">
+                <input type="password" maxlength="1" class="pin-input" id="pin2" autocomplete="off">
+                <input type="password" maxlength="1" class="pin-input" id="pin3" autocomplete="off">
+                <input type="password" maxlength="1" class="pin-input" id="pin4" autocomplete="off">
+            </div>
+            <div class="pin-error" id="pinError">
+                PINs do not match. Please try again.
+            </div>
+            <div class="pin-actions">
+                <button class="btn btn-outline" id="cancelPin">Cancel</button>
+                <button class="btn btn-primary" id="confirmPin">Confirm PIN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-container">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 style="margin-bottom: 10px; background: linear-gradient(135deg, var(--success), #059669); -webkit-background-clip: text; background-clip: text; color: transparent;">Transfer Successful!</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Your money has been sent securely</p>
+            
+            <div class="success-details">
+                <div class="success-item">
+                    <span>Amount:</span>
+                    <span id="successAmount">₦0.00</span>
+                </div>
+                <div class="success-item">
+                    <span>Recipient:</span>
+                    <span id="successRecipient">-</span>
+                </div>
+                <div class="success-item">
+                    <span>Transaction Hash:</span>
+                    <span id="successHash">-</span>
+                </div>
+                <div class="success-item">
+                    <span>Block Confirmed:</span>
+                    <span id="successBlock">-</span>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" id="closeSuccess" style="width: 100%;">Done</button>
+        </div>
+    </div>
+
+<script src="/public/js/service.js"></script>
+<script src="/public/js/dashboard.js"></script>
+</body>
+</html>
