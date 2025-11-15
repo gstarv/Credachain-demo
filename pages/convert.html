@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USDT to Naira - Creda Chain</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <link rel="stylesheet" href="/public/css/dummy/convert.css">
+ <link rel="stylesheet" href="/css/convert.css">
 
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
+                <a href="/index.html" class="logo">
                     <div class="logo-icon"></div>
                     <span>Creda Chain</span>
                 </a>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="convert.html" class="active">Convert</a></li>
-                        <li><a href="transfer.html">Transfer</a></li>
-                        <li><a href="transactions.html">Transactions</a></li>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/pages/dashboard.html">Dashboard</a></li>
+                        <li><a href="/pages/dashboard.html" class="active">Convert</a></li>
+                        <li><a href="/pages/Transfer.html">Transfer</a></li>
+                        <li><a href="/pages/transactions.html">Transactions</a></li>
                     </ul>
                 </nav>
                 <div class="auth-buttons">
                     <span class="text-muted" id="userBalance">Balance: ₦0.00</span>
-                    <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+                    <a href="/pages/dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
                 </div>
             </div>
         </div>
@@ -42,18 +42,18 @@
                         <p class="text-muted">Convert between USDT and Naira at best market rates</p>
                     </div>
                     <div class="dashboard-nav">
-                        <a href="convert.html" class="active">Convert</a>
-                        <a href="transfer.html">Transfer</a>
-                        <a href="airtime.html">Airtime</a>
-                        <a href="data.html">Data</a>
+                        <a href="/pages/convert.html" class="active">Convert</a>
+                        <a href="/pages/Transfer.html">Transfer</a>
+                        <a href="/pages/Airtime.html">Airtime</a>
+                        <a href="/pages/Data.html">Data</a>
                     </div>
                 </div>
                 
                 <div class="dashboard-content">
                     <div class="wallet-panel">
                         <div class="wallet-balance">
-                            <p class="text-muted">USDT Balance</p>
-                            <div class="balance-amount gradient-text" id="usdtBalance">0.0000 USDT</div>
+                            <p class="text-muted">USDC Balance</p>
+                            <div class="balance-amount gradient-text" id="usdtBalance">0.0000 USDC</div>
                             <p class="text-muted" id="usdtValue">≈ ₦0.00</p>
                         </div>
                         
@@ -88,7 +88,7 @@
                                 <div style="flex: 1;">
                                     <label class="form-label">You Send</label>
                                     <input type="number" class="form-control" id="sendAmount" placeholder="0.00" value="100">
-                                    <small class="text-muted">USDT</small>
+                                    <small class="text-muted">USDC</small>
                                 </div>
                             </div>
                             
@@ -108,7 +108,7 @@
                             <div class="rate-info">
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <span>Exchange Rate:</span>
-                                    <strong id="exchangeRate">1 USDT = ₦0.00</strong>
+                                    <strong id="exchangeRate">1 USDC = ₦0.00</strong>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
                                     <span>Fee:</span>
@@ -159,7 +159,7 @@
         </div>
     </footer>
 
-<script src="/public/js/service.js"></script>
-<script src="/public/js/dashboard.js"></script>
+<script src="/js/service.js"></script>
+<script src="/js/dashboard.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<style>
+
         :root {
             --primary-blue: #3498db;
             --primary-purple: #9b59b6;
@@ -32,7 +32,7 @@
 
         .auth-container {
             width: 100%;
-            max-width: 440px;
+            max-width: 480px;
         }
 
         .auth-card {
@@ -58,7 +58,7 @@
 
         .auth-header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .auth-logo {
@@ -176,38 +176,70 @@
             color: var(--text-light);
         }
 
-        .form-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
+        .password-strength {
+            margin-top: 8px;
+        }
+
+        .strength-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .strength-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .strength-weak .strength-fill {
+            background: var(--danger);
+            width: 33%;
+        }
+
+        .strength-medium .strength-fill {
+            background: var(--warning);
+            width: 66%;
+        }
+
+        .strength-strong .strength-fill {
+            background: var(--success);
+            width: 100%;
         }
 
         .checkbox-group {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         .checkbox-group input[type="checkbox"] {
+            margin-top: 2px;
             accent-color: var(--primary-blue);
         }
 
         .checkbox-label {
             font-size: 0.9rem;
             color: var(--text-light);
-            cursor: pointer;
+            line-height: 1.4;
         }
 
-        .forgot-link {
+        .checkbox-label a {
             color: var(--primary-blue);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
             transition: var(--transition);
         }
 
-        .forgot-link:hover {
+        .checkbox-label a:hover {
             text-decoration: underline;
         }
 
@@ -325,26 +357,41 @@
             text-decoration: underline;
         }
 
-        .security-notice {
-            background: rgba(52, 152, 219, 0.1);
-            border: 1px solid rgba(52, 152, 219, 0.3);
+        .security-features {
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid rgba(46, 204, 113, 0.3);
             border-radius: 8px;
-            padding: 12px 15px;
+            padding: 15px;
             margin: 20px 0;
+        }
+
+        .security-features h4 {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--success);
+            font-size: 0.95rem;
         }
 
-        .security-notice i {
-            color: var(--primary-blue);
-            font-size: 1.1rem;
-        }
-
-        .security-notice p {
+        .security-list {
+            list-style: none;
             font-size: 0.85rem;
-            margin: 0;
             color: rgba(255, 255, 255, 0.8);
+        }
+
+        .security-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+        .security-list li:before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            font-size: 0.8rem;
         }
 
         /* Toast Notifications */
@@ -393,11 +440,4 @@
             .social-login {
                 grid-template-columns: 1fr;
             }
-            
-            .form-options {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
-            }
         }
-    </style>
